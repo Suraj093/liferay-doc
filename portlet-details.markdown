@@ -15,3 +15,9 @@
 )
 
 ```
+
+### # Add the bnd Instruction for Language module in Liferay
+
+```
+-liferay-aggregate-resource-bundles: com.acme.u8t2.impl
+```
