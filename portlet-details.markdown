@@ -85,5 +85,39 @@ The AUI taglib is also available via a macro for your FreeMarker theme templates
 	</aui:button-row>
 </aui:form>
 ```
+### # AUI Form Validation
+```
+<aui:form name="myForm">
+    <aui:input name="password" id="password" label="Password"
+    required="true" />
+    <aui:input name="confirmPassword" id="password"
+    label="Confirm Password" required="true">
+        <aui:validator name="equalTo"
+        errorMessage="The passwords much match. Please try again." >
+        '#<portlet:namespace>password'
+        </aui:validator>
+    </aui:input>
+</aui:form>
+```
+### # Clay Tag Library
+```
+<%@ taglib prefix="clay" uri="http://liferay.com/tld/clay" %>
+```
+The Liferay Clay taglib is also available via a macro for your FreeMarker theme templates and web content templates. Follow this syntax:
+```
+<@clay["tag-name"] attribute="string value" attribute=10 />
+```
+Clay taglibs provide the following UI components for your apps:
 
-
+Alerts
+Badges
+Buttons
+Cards
+Dropdown Menus and Action Menus
+Form Elements
+Icons
+Labels and links
+Management Toolbar
+Navigation Bars
+Progress Bars
+Stickers
