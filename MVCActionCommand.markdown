@@ -181,3 +181,69 @@ Examine the Portlet Resource URL
 <a href="<portlet:resourceURL id="/p8v5/download" />">Download</a>
 
 ```
+### # Portlet Preferences
+
+Click the portlet’s options icon (options icon) and click Configuration. The portlet’s preferences window opens.
+
+```
+<portlet:defineObjects />
+
+<liferay-portlet:actionURL portletConfiguration="<%= true %>" var="configurationActionURL" />
+
+<aui:form action="<%= configurationActionURL %>" method="post" name="fm">
+	<aui:input name="<%= Constants.CMD %>" type="hidden" value="<%= Constants.UPDATE %>" />
+
+	<liferay-portlet:renderURL portletConfiguration="<%= true %>" var="configurationRenderURL" />
+
+	<aui:input name="redirect" type="hidden" value="<%= configurationRenderURL %>" />
+
+	<aui:fieldset>
+		<aui:select label="color" name="color" value='<%= (String)portletPreferences.getValue("color", "blue") %>'>
+			<aui:option label="Blue" value="blue" />
+			<aui:option label="Red" value="red" />
+			<aui:option label="Yellow" value="yellow" />
+		</aui:select>
+	</aui:fieldset>
+
+	<aui:button-row>
+		<aui:button type="submit" />
+	</aui:button-row>
+</aui:form>
+```
+### # Create the Configuration Action
+```
+	property = "javax.portlet.name=com_acme_p1z2_web_internal_portlet_P1Z2Portlet",
+	service = ConfigurationAction.class
+)
+public class P1Z2ConfigurationAction extends DefaultConfigurationAction {
+
+	@Override
+	public void processAction(
+			PortletConfig portletConfig, ActionRequest actionRequest,
+			ActionResponse actionResponse)
+		throws Exception {
+
+		setPreference(
+			actionRequest, "color",
+			ParamUtil.getString(actionRequest, "color"));
+
+		super.processAction(portletConfig, actionRequest, actionResponse);
+	}
+
+}
+```
+
+### # Add the Portlet’s Path Parameters
+
+```
+@Component(
+	property = {
+		"com.liferay.portlet.display-category=category.sample",
+		"javax.portlet.display-name=P1Z2 Portlet",
+		"javax.portlet.init-param.config-template=/configuration.jsp",
+		"javax.portlet.init-param.view-template=/view.jsp",
+		"javax.portlet.name=com_acme_p1z2_web_internal_portlet_P1Z2Portlet"
+	},
+	service = Portlet.class
+)
+```
