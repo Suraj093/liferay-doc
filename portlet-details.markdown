@@ -40,3 +40,50 @@ Liferay Util: load additional resources, define parameters, buffer content, and 
 ### # Note
 
 Each taglib is available as a FreeMarker macro, except for the Chart taglib. The Chart taglib is not available as a FreeMarker macro. The articles in this section provide the proper syntax to use for each macro. See the FreeMarker Taglib Mappings reference for a complete list of the available FreeMarker taglib macros.
+
+### # Alloy UI (AUI) Tag Library
+```
+<%@ taglib prefix="aui" uri="http://liferay.com/tld/aui" %>
+https://resources.learn.liferay.com/reference/latest/en/dxp/taglibs/util-taglib/aui/tld-summary.html
+
+```
+The AUI taglib is also available via a macro for your FreeMarker theme templates and web content templates. Follow this syntax:
+```
+<@liferay_aui["tag-name"] attribute="string value" attribute=10 />
+```
+### # An example form is shown below:
+```
+<aui:form name="fm">
+	<aui:fieldset-group markupView="lexicon">
+		<aui:fieldset label="Personal Information">
+			<aui:row>
+				<aui:col width="50">
+					<aui:input label="First Name" name="firstName" type="text" />
+				</aui:col>
+				<aui:col width="50">
+					<aui:input label="Last Name" name="lastName" type="text" />
+				</aui:col>
+			</aui:row>
+			<aui:row>
+				<aui:col width="50">
+					<aui:input label="Username" name="username" type="text" />
+				</aui:col>
+				<aui:col width="50">
+					<aui:input label="Email" name="email" type="email" />
+				</aui:col>
+			</aui:row>
+		</aui:fieldset>
+	</aui:fieldset-group>
+	<aui:fieldset-group markupView="lexicon">
+		<aui:fieldset label="Miscellaneous">
+			<aui:input label="Hobbies" name="hobbies" type="textarea" />
+			<aui:input label="Receive email updates" name="emailUpdates" type="checkbox" />
+		</aui:fieldset>
+	</aui:fieldset-group>
+	<aui:button-row>
+		<aui:button name="submitButton" type="submit" value="Submit" />
+	</aui:button-row>
+</aui:form>
+```
+
+
