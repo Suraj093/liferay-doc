@@ -108,7 +108,7 @@ The Liferay Clay taglib is also available via a macro for your FreeMarker theme 
 <@clay["tag-name"] attribute="string value" attribute=10 />
 ```
 Clay taglibs provide the following UI components for your apps:
-
+```
 Alerts
 Badges
 Buttons
@@ -121,3 +121,4 @@ Management Toolbar
 Navigation Bars
 Progress Bars
 Stickers
+```
