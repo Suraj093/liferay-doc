@@ -102,6 +102,7 @@ The AUI taglib is also available via a macro for your FreeMarker theme templates
 ### # Clay Tag Library
 ```
 <%@ taglib prefix="clay" uri="http://liferay.com/tld/clay" %>
+https://docs.liferay.com/ce/apps/frontend-taglib/3.0.0/taglibdocs/liferay-clay/button.html
 ```
 The Liferay Clay taglib is also available via a macro for your FreeMarker theme templates and web content templates. Follow this syntax:
 ```
