@@ -123,3 +123,38 @@ Navigation Bars
 Progress Bars
 Stickers
 ```
+
+### # Liferay UI Tag Library
+To use the Liferay-UI taglib library in your apps, you must add the following declaration to your JSP:
+
+```
+<%@ taglib prefix="liferay-ui" uri="http://liferay.com/tld/ui" %>
+https://resources.learn.liferay.com/reference/latest/en/dxp/taglibs/util-taglib/liferay-ui/tld-summary.html
+```
+The Liferay-UI taglib is also available via a macro for your FreeMarker theme and web content templates. Follow this syntax:
+
+```
+<@liferay_ui["tag-name"] attribute="string value" attribute=10 />
+```
+
+Code Example
+```
+<liferay-ui:tabs
+    names='<%= "user-settings,display-settings,rss" %>'
+    param="tabs2"
+    refresh="<%= false %>"
+    type="tabs nav-tabs-default"
+>
+    <liferay-ui:section>
+        <%@ include file="/configuration/user_settings.jspf" %>
+    </liferay-ui:section>
+
+    <liferay-ui:section>
+        <%@ include file="/configuration/display_settings.jspf" %>
+    </liferay-ui:section>
+
+    <liferay-ui:section>
+        <%@ include file="/configuration/rss.jspf" %>
+    </liferay-ui:section>
+</liferay-ui:tabs>
+```
