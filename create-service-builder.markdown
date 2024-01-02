@@ -2,6 +2,13 @@
 
 #  # Generating Model, Service, and Persistence Layers
 
+### # liferay Service Builder_7_4_0.dtd
+
+```
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+```
+
 To model the guestbooks and entries, you'll create guestbook and entry model 
 classes. But you won't do this directly in Java. Instead, you'll define them in 
 Service Builder, which generates your object model and maps it to all the SQL 
